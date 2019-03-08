@@ -138,23 +138,26 @@ const bindScreenTouch = () => {
         log('touchstart', event)
         startX = event.touches[0].pageX
         startY = event.touches[0].pageY
+
+        bindEvnet(container, 'touchmove', (event) => {
+            event.preventDefault()
+        })
+        
+        bindEvent(container, 'touchend', (event) => {
+            const endX = event.changedTouches[0].pageX
+            const endY = event.changedTouches[0].pageY
+            const direction = getDirection(startX, startY, endX, endY)
+            const content = e('.content-container')
+            if (direction === 'up') {
+                const index = -1
+                goNextPage(content, index)
+            } else if (direction === 'up') {
+                const index = 1
+                goNextPage(content, index)
+            }
+        })
     })
-    bindEvnet(container, 'touchmove', (event) => {
-        event.preventDefault()
-    })
-    bindEvent(container, 'touchend', (event) => {
-        const endX = event.changedTouches[0].pageX
-        const endY = event.changedTouches[0].pageY
-        const direction = getDirection(startX, startY, endX, endY)
-        const content = e('.content-container')
-        if (direction === 'up') {
-            const index = -1
-            goNextPage(content, index)
-        } else if (direction === 'up') {
-            const index = 1
-            goNextPage(content, index)
-        }
-    })
+
 }
 
 // 绑定所有事件
