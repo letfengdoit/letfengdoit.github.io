@@ -57,6 +57,7 @@ const handleNextImage = (slide, next) => {
     slide.dataset.active = next
 }
 
+// 轮播图按键
 const bindButtonClick =() => {
     const buttons = es('.slide-button')
     const slide = e('.slide-wrapper')
@@ -68,16 +69,13 @@ const bindButtonClick =() => {
     })
 }
 
+// 下一个页面
 const goNextPage= (content, index) => {
     if (index >= 0 && index < 4) {
         content.style.transform = `translateY(${index * (-100)}vh)`
         content.dataset.active = index
         goNavActive(index)
     }
-    // if (index === 3) {
-    //
-    // }
-
 }
 
 // 鼠标滚轮滚动
@@ -99,6 +97,7 @@ const bindMousewheel = () => {
     })
 }
 
+// 轮播图下面小按钮
 const bindSlideClick = () => {
     const indi = es('.slide-indi')
     const slide = e('.slide-wrapper')
@@ -109,7 +108,8 @@ const bindSlideClick = () => {
     })
 }
 
-const bindReadTouch = () => {
+// 播放器介绍切换
+const bindReadClick = () => {
     const read = e('.page-2-read')
     const left = e('.page-2-left')
     const right = e('.page-2-right')
@@ -119,13 +119,55 @@ const bindReadTouch = () => {
     })
 }
 
+const getDirection = (sX, sY, eX, eY) => {
+    const resultX = eX - sX
+    const resultY = eY - sY
+    const absX = Math.abs(resultX)
+    const absY = Math.abs(resultY)
+    let d = ''
+    if (absX > absY && resultX > 0) {
+        d = 'right'
+    } else if (absX > absY && resultX < 0) {
+        d = 'left'
+    } else if (absX < absY && resultY > 0) {
+        d = 'up'
+    }  else if (absX < absY && resultY < 0) {
+        d = 'down'
+    }
+    return d
+}
+
+const bindScreenTouch = () => {
+    let startX, startY
+    const container = e('.container')
+    bindEvent(container, 'touchstart', (event) => {
+        log('touchstart', event)
+        startX = event.touches[0].pageX
+        startY = event.touches[0].pageY
+    })
+    // bindEvnet(container, 'touchmove', (event) => {
+    //     event.preventDefault()
+    // })
+    bindEvent(container, 'touchend', (event) => {
+        const endX = event.changedTouches[0].pageX
+        const endY = event.changedTouches[0].pageY
+        const direction = getDirection(startX, startY, endX, endY)
+        if (direction === 'up') {
+
+        } else if (direction === 'up') {
+
+        }
+    })
+}
+
 // 绑定所有事件
 const bindEvents = () => {
     bindNavClick()
     bindButtonClick()
     bindMousewheel()
     bindSlideClick()
-    bindReadTouch()
+    bindReadClick()
+    bindScreenTouch()
 }
 
 

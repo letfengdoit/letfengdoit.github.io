@@ -41,6 +41,9 @@
     font-size: .5rem;
 }
 
+.image-2-desc {
+    left: 0%;
+}
 .image-2-desc > p {
     font-size: .4rem;
 }
@@ -125,8 +128,8 @@
 }
 
 #weather {
-    width: 6rem;
-    height: 6rem;
+    width: 6.5rem;
+    height: 6.5rem;
 }
 
 .foot-wrapper {
