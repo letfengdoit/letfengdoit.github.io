@@ -3,10 +3,9 @@
 const goNavActive = (index) => {
     removeClassAll('nav-tag-active')
     es('.nav-tag')[index].classList.add('nav-tag-active')
-
     const style = e('.nav-line').style
     if (window.screen.width > 480) {
-        style.transform = `translateX(${index * 2.5}rem)`
+        style.transform = `translateX(${index * 2.4}rem)`
         return
     } else  if (index !== 0) {
         style.transform = `translateX(${index * 1.6}rem)`
@@ -38,13 +37,8 @@ const nextActive = (element, offset) => {
 
 // 轮播图转动
 const handleNextImage = (slide, next) => {
-
-    // const images = Number(slide.dataset.list)
-    // const active = Number(slide.dataset.active)
-    // const next =  (active + offset + images) % images
     const nextImage = '#slide-image-' + next
     const nextIndi = '#slide-indi-' + next
-    log('nextIndi', nextIndi)
     removeClassAll('slide-image-acitve')
     removeClassAll('slide-indi-active')
 
@@ -145,17 +139,20 @@ const bindScreenTouch = () => {
         startX = event.touches[0].pageX
         startY = event.touches[0].pageY
     })
-    // bindEvnet(container, 'touchmove', (event) => {
-    //     event.preventDefault()
-    // })
+    bindEvnet(container, 'touchmove', (event) => {
+        event.preventDefault()
+    })
     bindEvent(container, 'touchend', (event) => {
         const endX = event.changedTouches[0].pageX
         const endY = event.changedTouches[0].pageY
         const direction = getDirection(startX, startY, endX, endY)
+        const content = e('.content-container')
         if (direction === 'up') {
-
+            const index = -1
+            goNextPage(content, index)
         } else if (direction === 'up') {
-
+            const index = 1
+            goNextPage(content, index)
         }
     })
 }
