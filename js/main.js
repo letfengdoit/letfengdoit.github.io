@@ -139,24 +139,36 @@ const bindScreenTouch = () => {
         log('touchstart', event)
         startX = event.touches[0].pageX
         startY = event.touches[0].pageY
+    })
 
-        bindEvnet(container, 'touchmove', (event) => {
-            event.preventDefault()
-        })
+    bindEvent(container, 'touchmove', (event) => {
+        event.preventDefault()
+    })
 
-        bindEvent(container, 'touchend', (event) => {
-            const endX = event.changedTouches[0].pageX
-            const endY = event.changedTouches[0].pageY
-            const direction = getDirection(startX, startY, endX, endY)
-            const content = e('.content-container')
-            if (direction === 'up') {
-                const index = -1
-                goNextPage(content, index)
-            } else if (direction === 'down') {
-                const index = 1
-                goNextPage(content, index)
-            }
-        })
+    bindEvent(container, 'touchend', (event) => {
+        const endX = event.changedTouches[0].pageX
+        const endY = event.changedTouches[0].pageY
+        const direction = getDirection(startX, startY, endX, endY)
+        const content = e('.content-container')
+        const slide = e('.slide-wrapper')
+        let index = 0
+        if (direction === 'up') {
+            index = -1
+            let next =  Number(content.dataset.active) + index
+            goNextPage(content, next)
+        } else if (direction === 'down') {
+            index = 1
+            let next = Number(content.dataset.active) + index
+            goNextPage(content, next)
+        } else if (direction === 'left') {
+            index = 1            
+            let next = nextActive(slide, index)
+            handleNextImage(slide, next)
+        } else if (direction === 'right') {
+            index = -1            
+            let next = nextActive(slide, index)
+            handleNextImage(slide, next)
+        }
     })
 
 }
