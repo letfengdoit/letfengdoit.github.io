@@ -151,20 +151,21 @@ const bindScreenTouch = () => {
         const direction = getDirection(startX, startY, endX, endY)
         const content = e('.content-container')
         const slide = e('.slide-wrapper')
+        const active = Number(content.dataset.active)
         let index = 0
         if (direction === 'up') {
             index = -1
-            let next =  Number(content.dataset.active) + index
+            let next =  active + index
             goNextPage(content, next)
         } else if (direction === 'down') {
             index = 1
-            let next = Number(content.dataset.active) + index
+            let next = active + index
             goNextPage(content, next)
-        } else if (direction === 'left') {
+        } else if (direction === 'left' && active === 1) {
             index = 1            
             let next = nextActive(slide, index)
             handleNextImage(slide, next)
-        } else if (direction === 'right') {
+        } else if (direction === 'right' && active === 1) {
             index = -1            
             let next = nextActive(slide, index)
             handleNextImage(slide, next)
