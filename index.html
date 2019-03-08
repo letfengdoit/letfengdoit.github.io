@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimun-scale=1.0,maximun-scale=1.0,user-scalable=no">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/iconfont.css">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/pad.css" media="only screen and (max-width: 1100px)">
+        <link rel="stylesheet" href="css/mobile.css" media="only screen and (max-width: 480px)">
+        <title>My Page</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header-container">
+                <div class="header-left"></div>
+                <div class="header-blank"></div>
+                <div class="header-right">
+                    <a id="nav-0" data-index="0" class="nav-tag nav-tag-active">首页</a>
+                    <a id="nav-1" data-index="1" class="nav-tag">图片</a>
+                    <a id="nav-2" data-index="2" class="nav-tag">音乐</a>
+                    <a id="nav-3" data-index="3" class="nav-tag">天气</a>
+                    <div class="nav-line"></div>
+                </div>
+            </div>
+            <div class="content-container" data-list="4" data-active="0">
+                <div class="content-title">
+                    <div id="page-0" class="content-page page-0">
+                        <div class="page-title page-0-desc">
+                            <h1 class="page-content">Welcome to my home page</h1>
+                            <p>Hello, I'm letfengdoit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-slide">
+                    <div id="page-1" class="content-page page-1">
+                        <div class="slide-wrapper" data-list="3" data-active="0">
+                            <div class="slide-imgs">
+                                <div id="slide-image-0" class="slide-image slide-image-acitve">
+                                    <div class="page-title image-0-desc">
+                                        <h1 class="page-content">About me</h1>
+                                        <p>勤快、高效的 80 后</p>
+                                        <p>Web 前端工程师</p>
+                                        <p>善于编写原生 JavaScript</p>
+                                        <p>喜欢编程 热爱生活</p>
+                                    </div>
+                                </div>
+                                <div id="slide-image-1" class="slide-image">
+                                    <div class="page-title image-1-desc">
+                                        <h1 class="page-content">轮播图</h1>
+                                        <p>运用 CSS3 特性</p>
+                                        <p>原生 JavaScript</p>
+                                        <p>实现图片轮播动画</p>
+                                        <p>按键切换、滚动条切换</p>
+                                    </div>
+                                </div>
+                                <div id="slide-image-2" class="slide-image">
+                                    <div class="page-title image-2-desc">
+                                        <h1 class="page-content">随时准备出发。</h1>
+                                        <p>Be ready at any time.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-button-wrapper">
+                            <button class="slide-button left iconfont" data-offset="-1">&#xe779;</button>
+                            <button class="slide-button right iconfont" data-offset="1">&#xe775;</button>
+                        </div>
+                        <div class="slide-indicators">
+                            <span id="slide-indi-0" data-index="0" class="slide-indi slide-indi-active"></span>
+                            <span id="slide-indi-1" data-index="1" class="slide-indi"></span>
+                            <span id="slide-indi-2" data-index="2" class="slide-indi"></span>
+                        </div>
+                    </div>
+                    <div class="page-1">
+
+                    </div>
+                </div>
+                <div class="content-music">
+                    <div id="page-2" class="content-page page-2">
+                        <div class="page-2-wrapper vertical-center">
+                            <div class="page-2-left"></div>
+                            <div class="page-2-center"></div>
+                            <div class="page-2-right">
+                                <h1>Music Player</h1>
+                                <p>JS: 实现音乐播放器各项功能</p>
+                                <p>HTML5: audio 标签</p>
+                                <p>CSS5: transition、transform 等新特性</p>
+                                <p>功能: 播放、暂停、上下曲、顺序随机播放、更改音乐进度、播放列表</p>
+                            </div>
+                            <div class="page-2-read">
+                                Read More
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-weather">
+                    <div id="page-3" class="content-page page-3">
+                        <div class="page-3-wrapper vertical-center">
+                            <div id="weather"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-wrapper">
+                foot
+            </div>
+        </div>
+        <script src="js/utils.js"></script>
+        <script src="js/echarts.min.js"></script>
+        <script src="js/weather.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+.header-container {
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.header-left {
+    width: 0;
+    padding: 0;
+}
+
+.header-blank {
+    display: none;
+}
+
+.nav-tag {
+    margin: 0;
+    padding: 0 .52rem;
+}
+
+.nav-line {
+    width: 1.8rem;
+}
+
+.page-content {
+    font-size: .8rem;
+}
+
+.page-content > p {
+    font-size: .6rem;
+}
+.page-title > p {
+    font-size: .5rem;
+}
+
+.image-2-desc > p {
+    font-size: .4rem;
+}
+.slide-button {
+    width: 1rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    transform: translateY(-410%);
+}
+
+.page-2-wrapper {
+    top: 51%;
+    left: 5%;
+}
+
+.page-2-left {
+    background-size: 100% 100%;
+}
+
+.page-2-right {
+    display: none;
+    position: absolute;
+    top: -10%;
+}
+
+.page-2-read {
+    z-index: 3;
+    display: block;
+    position: absolute;
+    left: 27%;
+    bottom: -11%;
+    width: 3rem;
+    height: .8rem;
+    line-height: .8rem;
+    border-radius: 10px;
+    background: white;
+    text-align: center;
+    color: #8dddfd;
+}
+
+/* .page-2-readme > span {
+    line-height: .8rem;
+} */
+.page-3-wrapper{
+    left: 1%;
+}
+
+#weather {
+    width: 7.3rem;
+    height: 8rem;
+}
