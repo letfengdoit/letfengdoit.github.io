@@ -128,22 +128,25 @@ const getDirection = (sX, sY, eX, eY) => {
     }  else if (absX < absY && resultY < 0) {
         d = 'down'
     }
+    log('Direction', d)
     return d
 }
 
 const bindScreenTouch = () => {
     let startX, startY
     const container = e('.container')
-    bindEvent(container, 'touchstart', (event) => {
+    bindEvent(container, 'touchstart', (event) => {        
         log('touchstart', event)
+        event.preventDefault()
         startX = event.touches[0].pageX
         startY = event.touches[0].pageY
 
         bindEvnet(container, 'touchmove', (event) => {
             event.preventDefault()
         })
-        
+
         bindEvent(container, 'touchend', (event) => {
+            event.preventDefault()
             const endX = event.changedTouches[0].pageX
             const endY = event.changedTouches[0].pageY
             const direction = getDirection(startX, startY, endX, endY)
@@ -151,7 +154,7 @@ const bindScreenTouch = () => {
             if (direction === 'up') {
                 const index = -1
                 goNextPage(content, index)
-            } else if (direction === 'up') {
+            } else if (direction === 'down') {
                 const index = 1
                 goNextPage(content, index)
             }

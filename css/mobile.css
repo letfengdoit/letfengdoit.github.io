@@ -17,6 +17,7 @@
 
 .header-right {
     box-sizing: border-box;
+    margin-left: 5%;
 }
 
 .nav-tag {
@@ -26,7 +27,8 @@
 }
 
 .nav-line {
-    width: 1.3rem;
+    width: 1rem;
+    left: 5%;
     transform: translateX(.2rem);
 }
 
