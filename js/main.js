@@ -9,7 +9,7 @@ const goNavActive = (index) => {
         style.transform = `translateX(${index * 2.5}rem)`
         return
     } else  if (index !== 0) {
-        style.transform = `translateX(${index * 2}rem)`
+        style.transform = `translateX(${index * 1.6}rem)`
     } else {
         style.transform = `translateX(.2rem)`
     }
