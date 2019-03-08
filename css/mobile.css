@@ -1,3 +1,5 @@
+
+
 .header-container {
     height: 1.5rem;
     line-height: 1.5rem;
@@ -18,7 +20,8 @@
 }
 
 .nav-line {
-    width: 1.8rem;
+    width: 1.3rem;
+    transform: translateX(.2rem);
 }
 
 .page-content {
@@ -36,32 +39,62 @@
     font-size: .4rem;
 }
 .slide-button {
-    width: 1rem;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    transform: translateY(-410%);
+    width: .8rem;
+    height: 1rem;
+    line-height: 1rem;
+    transform: translateY(-600%);
+}
+
+
+.slide-indicators {
+    left: 67%;
+    bottom: 15%;
+}
+
+.slide-indi {
+    width: .6rem;
 }
 
 .page-2-wrapper {
-    top: 51%;
-    left: 5%;
+    position: relative;
+    left: 0;
 }
 
 .page-2-left {
+    position: absolute;
+    height: 9.8rem;
+    left: 42%;
+    transform: translateX(-50%);
     background-size: 100% 100%;
+    opacity: 1;
+    transition: opacity 1s;
 }
 
 .page-2-right {
-    display: none;
     position: absolute;
-    top: -10%;
+    top: 10%;
+    left: 9%;
+    width: 6rem;
+    height: 8rem;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.page-2-right > h1 {
+    font-weight: 700;
+    font-size: .5rem;
+}
+
+.page-2-right > p {
+    font-size: .3rem;
+    line-height: .5rem;
 }
 
 .page-2-read {
     z-index: 3;
     display: block;
     position: absolute;
-    left: 27%;
+    left: 31%;
     bottom: -11%;
     width: 3rem;
     height: .8rem;
@@ -72,14 +105,24 @@
     color: #8dddfd;
 }
 
-/* .page-2-readme > span {
-    line-height: .8rem;
-} */
+.display {
+    opacity: 0;
+}
+
+.active {
+    opacity: 1;
+}
+
+
 .page-3-wrapper{
-    left: 1%;
+    left: 3.5%;
 }
 
 #weather {
-    width: 7.3rem;
+    width: 7rem;
     height: 8rem;
+}
+
+.foot-wrapper {
+    right: .2rem;
 }

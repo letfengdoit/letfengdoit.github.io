@@ -315,3 +315,37 @@ body::-webkit-scrollbar {
     width: 12rem;
     height: 8rem;
 }
+
+.foot-wrapper {
+    z-index: 5;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    color: white;
+    user-select: none;
+    -webkit-user-select: none;
+    animation: down 2s infinite;
+}
+
+.icon-down {
+    font-size: 1rem;
+}
+
+@keyframes down {
+    from {
+        top: 85%;
+    }
+    to {
+        top: 88%;
+    }
+    from {
+        bottom: 12%;
+    }
+    to {
+        bottom: 15%;
+    }
+}

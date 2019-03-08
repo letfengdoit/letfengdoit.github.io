@@ -3,10 +3,17 @@
 const goNavActive = (index) => {
     removeClassAll('nav-tag-active')
     es('.nav-tag')[index].classList.add('nav-tag-active')
-    // 移动 nav-line
-    // const index = Number(self.dataset.index)
-    // const line = e('.nav-line')
-    e('.nav-line').style.transform = `translateX(${index * 2.5}rem)`
+
+    const style = e('.nav-line').style
+    if (window.screen.width > 480) {
+        style.transform = `translateX(${index * 2.5}rem)`
+        return
+    } else  if (index !== 0) {
+        style.transform = `translateX(${index * 2}rem)`
+    } else {
+        style.transform = `translateX(.2rem)`
+    }
+
 }
 
 
@@ -102,12 +109,23 @@ const bindSlideClick = () => {
     })
 }
 
+const bindReadTouch = () => {
+    const read = e('.page-2-read')
+    const left = e('.page-2-left')
+    const right = e('.page-2-right')
+    bindEvent(read, 'click', (event) => {
+        left.classList.toggle('display')
+        right.classList.toggle('active')
+    })
+}
+
 // 绑定所有事件
 const bindEvents = () => {
     bindNavClick()
     bindButtonClick()
     bindMousewheel()
     bindSlideClick()
+    bindReadTouch()
 }
 
 
@@ -115,6 +133,7 @@ const bindEvents = () => {
 const __main = () => {
     bindEvents()
     fetchWeather()
+
 }
 
 __main()
