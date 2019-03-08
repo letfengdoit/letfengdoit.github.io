@@ -137,7 +137,6 @@ const bindScreenTouch = () => {
     const container = e('.container')
     bindEvent(container, 'touchstart', (event) => {        
         log('touchstart', event)
-        event.preventDefault()
         startX = event.touches[0].pageX
         startY = event.touches[0].pageY
 
@@ -146,7 +145,6 @@ const bindScreenTouch = () => {
         })
 
         bindEvent(container, 'touchend', (event) => {
-            event.preventDefault()
             const endX = event.changedTouches[0].pageX
             const endY = event.changedTouches[0].pageY
             const direction = getDirection(startX, startY, endX, endY)
