@@ -132,6 +132,7 @@ const getDirection = (sX, sY, eX, eY) => {
     return d
 }
 
+// 手机滑动
 const bindScreenTouch = () => {
     let startX, startY
     const container = e('.container')
