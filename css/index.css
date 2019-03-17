@@ -353,3 +353,11 @@ body::-webkit-scrollbar {
         bottom: 15%;
     }
 }
+
+.hide {
+    opacity: 0;
+}
+
+.active {
+    opacity: 1;
+}

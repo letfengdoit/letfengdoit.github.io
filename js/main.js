@@ -1,3 +1,14 @@
+// 显示隐藏 footer
+const toggleFooter = (index) => {
+    const footer = e('.foot-wrapper')
+    const show = footer.classList.contains('hide')
+    if (index < 3 && show) {
+        footer.classList.remove('hide')
+    } else if (index === 3 && !show) {
+        footer.classList.add('hide')
+    }    
+}
+
 
 // 显示点击 nav
 const goNavActive = (index) => {
@@ -12,7 +23,7 @@ const goNavActive = (index) => {
     } else {
         style.transform = `translateX(.2rem)`
     }
-
+    toggleFooter(index)
 }
 
 
@@ -132,12 +143,36 @@ const getDirection = (sX, sY, eX, eY) => {
     return d
 }
 
+// 手机控制页面
+const handleMobliePage = (direction) => {
+    const content = e('.content-container')
+    const slide = e('.slide-wrapper')
+    const active = Number(content.dataset.active)
+    let index, next
+    if (direction === 'up') {
+        index = -1
+        next = active + index
+        goNextPage(content, next)
+    } else if (direction === 'down') {
+        index = 1
+        next = active + index
+        goNextPage(content, next)
+    } else if (direction === 'left' && active === 1) {
+        index = 1
+        next = nextActive(slide, index)
+        handleNextImage(slide, next)
+    } else if (direction === 'right' && active === 1) {
+        index = -1
+        next = nextActive(slide, index)
+        handleNextImage(slide, next)
+    }
+}
+
 // 手机滑动
 const bindScreenTouch = () => {
     let startX, startY
     const container = e('.container')
     bindEvent(container, 'touchstart', (event) => {        
-        log('touchstart', event)
         startX = event.touches[0].pageX
         startY = event.touches[0].pageY
     })
@@ -150,27 +185,7 @@ const bindScreenTouch = () => {
         const endX = event.changedTouches[0].pageX
         const endY = event.changedTouches[0].pageY
         const direction = getDirection(startX, startY, endX, endY)
-        const content = e('.content-container')
-        const slide = e('.slide-wrapper')
-        const active = Number(content.dataset.active)
-        let index = 0
-        if (direction === 'up') {
-            index = -1
-            let next =  active + index
-            goNextPage(content, next)
-        } else if (direction === 'down') {
-            index = 1
-            let next = active + index
-            goNextPage(content, next)
-        } else if (direction === 'left' && active === 1) {
-            index = 1            
-            let next = nextActive(slide, index)
-            handleNextImage(slide, next)
-        } else if (direction === 'right' && active === 1) {
-            index = -1            
-            let next = nextActive(slide, index)
-            handleNextImage(slide, next)
-        }
+        handleMobliePage(direction)
     })
 
 }
