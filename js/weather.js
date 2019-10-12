@@ -3,7 +3,7 @@ const myChart = echarts.init(e('#weather'))
 // 指定图表的配置项和数据
 const option = {
     title: {
-        text: '沈阳',
+        text: '沈阳天气预报',
         subtext: '三日内气温'
     },
     tooltip: {
